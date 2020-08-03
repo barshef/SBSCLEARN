@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200709110610_Inital-setup.cs" />
+    <Compile Remove="Migrations\20200709110610_Inital-setup.Designer.cs" />
+    <Compile Remove="Migrations\20200803213437_20200308_Inital-setup.cs" />
+    <Compile Remove="Migrations\20200803213437_20200308_Inital-setup.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SBSCLEARN.Domain\SBSCLEARN.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
