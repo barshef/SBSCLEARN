@@ -29,11 +29,11 @@ namespace SBSCLEARN.Service.Features.CourseFeatures.Commands
                 var course = new Course
                 {
                     CourseName = request.CourseName,
-                    CategoryId = 1,  //Fix this later.
+                    CategoryId = request.CategoryId,  //Fix this later.
                     FileName = request.FileName,
                     FilePath = request.FilePath,
                     CreatedOn = DateTime.Now,
-                    CreatedBy = "System"
+                    CreatedBy = "System Admin"
                 };
 
                 _context.Courses.Add(course);

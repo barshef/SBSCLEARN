@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using SBSCLEARN.Infrastructure.Attributes;
 using SBSCLEARN.Service.Features.CourseFeatures.Commands;
 //using SBSCLEARN.Service.Features.CourseFeatures.Queries;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace SBSCLEARN.Controllers
     //[Route("api/v{version:apiVersion}/Customer")]
     [ApiController]
     [ApiVersion("1.0")]
+    [ValidationFilter]
     public class CourseController : ControllerBase
     {
         private IMediator _mediator;

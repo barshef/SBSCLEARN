@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SBSCLEARN.Infrastructure.Attributes;
 using SBSCLEARN.Infrastructure.Extension;
 using SBSCLEARN.Service;
 using Serilog;
@@ -44,6 +45,8 @@ namespace SBSCLEARN
             services.AddMediatorCQRS();
 
             services.AddVersion();
+
+            services.AddMvc(options => options.Filters.Add(typeof(ValidationFilterAttribute)));
 
         }
 
