@@ -12,8 +12,4 @@
     <ProjectReference Include="..\SBSCLEARN.Persistence\SBSCLEARN.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\CourseFeatures\Queries\" />
-  </ItemGroup>
-
 </Project>

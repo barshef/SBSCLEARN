@@ -1,0 +1,72 @@
+﻿@page
+@model SBSCLEARN.Web.Pages.NewModel
+@{
+    ViewData["Title"] = "New Course Entries";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-10 mx-auto py-4">
+    <div class="card">
+        <div class="card-header bg-primary text-uppercase text-white">
+            <h4>Add New </h4>
+            <input type="hidden" name="" asp-for="@Model.ServiceUrl" value="@Model.ServiceUrl" id="serviceUrl" />
+            @Html.AntiForgeryToken()
+        </div>
+        <div class="card-body">
+            <div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Category Name <span style="color: red; font-size: 20px">*</span> :</label>
+                            <div id="categorySelectBox"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Course Name <span style="color: red; font-size: 20px">*</span> :</label>
+                            <input placeholder="enter course name" type="text" autocomplete="off" class="form-control required" name="courseName" id="txtcourseName" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label">Attach File :</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="fileupload">
+                            <label class="custom-file-label" for="fileupload">Choose file</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="submit" id="btnSaveCourse" class="btn btn-sm btn-success rounded-0 text-uppercase" />
+                    <a asp-page="/Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to Course List</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- DevExtreme themes -->
+    <link href="~/Scripts/DevExpress/devextreme/css/dx.common.css" rel="stylesheet" />
+    <link href="~/Scripts/DevExpress/devextreme/css/dx.light.css" rel="stylesheet" />
+    <!-- DevExtreme themes -->
+    <!-- A DevExtreme library -->
+    <script src="~/Scripts/DevExpress/devextreme/js/dx.all.debug.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/Scripts/DevExpress/dx.aspnet.data.min.js" type="text/javascript" asp-append-version="true"></script>
+    <!-- DevExtreme dependencies -->
+
+    <script src="~/Scripts/OtherScript/SweetAlert.min.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/Scripts/OtherScript/stringify.min.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/Scripts/OtherScript/main.min.js" type="text/javascript" asp-append-version="true"></script>
+
+    <script src="~/Scripts/Application/newCourse.js" type="text/javascript" asp-append-version="true"></script>
+
+
+}
+

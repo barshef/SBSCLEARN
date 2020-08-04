@@ -17,7 +17,7 @@ namespace SBSCLEARN.Persistence
         }
 
         public DbSet<User> Users { get; set; }
-        //public DbSet<ScoreDetail> ScoreDetails { get; set; }
+        public DbSet<ScoreDetail> ScoreDetails { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Course> Courses { get; set; }
 

@@ -1,0 +1,71 @@
+﻿@page
+@model SBSCLEARN.Web.Pages.ScoresModel
+@{
+    ViewData["Title"] = "List of Users With Highest Score";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-10 mx-auto py-4">
+    <div class="card">
+        <div class="card-header bg-primary text-uppercase text-white">
+            <h4>List of Users With Highest Score</h4>
+            <input type="hidden" name="" asp-for="@Model.ServiceUrl" value="@Model.ServiceUrl" id="serviceUrl" />
+            @Html.AntiForgeryToken()
+        </div>
+        <div class="card-body">
+            <div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Category Name <span style="color: red; font-size: 20px">*</span> :</label>
+                            <div id="categorySelectBox"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" id="courseDiv">
+                        <div class="form-group">
+                            <label class="control-label">Course Name <span style="color: red; font-size: 20px">*</span> :</label>
+                            <div id="courseSelectBox"></div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label">Details :</label>
+                        <div class="custom-file">
+                            <div id="userScroresGrid"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <a asp-page="/Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back Home</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- DevExtreme themes -->
+    <link href="~/Scripts/DevExpress/devextreme/css/dx.common.css" rel="stylesheet" />
+    <link href="~/Scripts/DevExpress/devextreme/css/dx.light.css" rel="stylesheet" />
+    <!-- DevExtreme themes -->
+    <!-- A DevExtreme library -->
+    <script src="~/Scripts/DevExpress/devextreme/js/dx.all.debug.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/Scripts/DevExpress/dx.aspnet.data.min.js" type="text/javascript" asp-append-version="true"></script>
+    <!-- DevExtreme dependencies -->
+
+    <script src="~/Scripts/OtherScript/SweetAlert.min.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/Scripts/OtherScript/stringify.min.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/Scripts/OtherScript/main.min.js" type="text/javascript" asp-append-version="true"></script>
+
+    <script src="~/Scripts/Application/scores.js" type="text/javascript" asp-append-version="true"></script>
+
+
+}
+
+

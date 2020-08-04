@@ -8,7 +8,7 @@ namespace SBSCLEARN.Persistence
     {
         DbSet<Category> Categories { get; set; }
         DbSet<Course> Courses { get; set; }
-        //DbSet<ScoreDetail> ScoreDetails { get; set; }
+        DbSet<ScoreDetail> ScoreDetails { get; set; }
         DbSet<User> Users { get; set; }
 
         Task<int> SaveChangesAsync();
