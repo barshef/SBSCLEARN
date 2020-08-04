@@ -68,7 +68,6 @@ namespace SBSCLEARN.Controllers
                 using var stream = new FileStream(fullPath, FileMode.Create);
                 file.CopyTo(stream);
                 return Ok(bc);
-                //return Ok(await _mediator.Send(command));
             }
             else
             {
