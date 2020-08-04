@@ -97,7 +97,7 @@
 
         $('#userScroresGrid').show();
         var remoteDataLoader = DevExpress.data.AspNet.createStore({
-            key: "id",
+            key: "categoryId",
             loadUrl: ServiceUrl + "/api/Course/getUserScoreBycourseId",
             loadParams: { courseId: courseId }
         });
@@ -153,7 +153,7 @@
                     },
                     {
                         caption: "UserName",
-                        dataField: "user"
+                        dataField: "categoryId"
                     }, 
                     {
                         caption: "Score",

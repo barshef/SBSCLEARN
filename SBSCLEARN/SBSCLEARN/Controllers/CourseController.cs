@@ -90,7 +90,7 @@ namespace SBSCLEARN.Controllers
         public async Task<IActionResult> GetUserScoreBycourseId(DataSourceLoadOptions loadOptions, int courseId)
         {
             var result = await _mediator.Send(new GetUserScoresByIdQuery { Id = courseId });
-            loadOptions.PrimaryKey = new[] { "Id" };
+            loadOptions.PrimaryKey = new[] { "CategoryId" };
             return Ok(DataSourceLoader.Load(result, loadOptions));
         }
 
