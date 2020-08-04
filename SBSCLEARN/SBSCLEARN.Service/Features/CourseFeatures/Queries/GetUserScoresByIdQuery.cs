@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace SBSCLEARN.Service.Features.CourseFeatures.Queries
 {
-    public class GetUserScoresByIdQuery : IRequest<List<ScoreDetail>>
+    public class GetUserScoresByIdQuery : IRequest<List<CategoryScore>>
     {
         public int Id { get; set; }
-        public class GetUserScoresByIdQueryHandler : IRequestHandler<GetUserScoresByIdQuery, List<ScoreDetail>>
+        public class GetUserScoresByIdQueryHandler : IRequestHandler<GetUserScoresByIdQuery, List<CategoryScore>>
         {
             private readonly IApplicationDbContext _context;
             public GetUserScoresByIdQueryHandler(IApplicationDbContext context)
@@ -20,28 +20,35 @@ namespace SBSCLEARN.Service.Features.CourseFeatures.Queries
                 _context = context;
             }
 
-            public Task<List<ScoreDetail>> Handle(GetUserScoresByIdQuery request, CancellationToken cancellationToken)
+            public async Task<List<CategoryScore>> Handle(GetUserScoresByIdQuery request, CancellationToken cancellationToken)
             {
-                var scoreDetails = _context.ScoreDetails.Where(a => a.CourseId == request.Id).ToListAsync();
+                
+                var query = await (from s in _context.ScoreDetails
+                                   join c in _context.Courses on s.CourseId equals c.Id
+                                   join ct in _context.Categories on c.CategoryId equals ct.Id
+                                   join u in _context.Users on s.UserId equals u.Id
+                                   group s by new { ct.CategoryName, ct.Id } into g
+                                   select new CategoryScore
+                                   {
+                                       CategoryName = g.Key.CategoryName,
+                                       CategoryId = g.Key.Id,
+                                       //User = g.Select(x => new { x.Score, x.User }).OrderByDescending(x => x.Score).FirstOrDefault().User.UserName,
+                                       MaxScore = g.Max(x => x.Score)
+                                   }).ToListAsync();
 
-                //var maxAge = _context.Courses.Max(c => c.ScoreDetails.FirstOrDefault().Score);
-
-                //var robotDogs = _context.Courses.GroupBy(x => x.CourseName).Select(g => new { Name = g.Key, Guns = g.Sum(x => x.ScoreDetails.FirstOrDefault().Score) });
-                //int maxAge = (int)_context.Courses.Select(p => p.ScoreDetails.FirstOrDefault().Score).DefaultIfEmpty(0).Max();
-                //var robotDog = from d in _context.Courses
-                //               join f in _context.RobotFactories
-                //                on d.RobotFactoryId equals f.RobotFactoryId
-                //                select new { f.Location, d.RobotDogId } into x
-                //                group x by new { x.Location } into g
-                //                select new
-                //                {
-                //                    Location = g.Key.Location,
-                //                    Guns = g.Select(x => x.RobotDogId).Max()
-                //                };
-                if (scoreDetails == null) return null;
-                //return course.AsReadOnly();
-                return scoreDetails;
+                if (query == null) return null;
+                return query;
             }
         }
+
+
+    }
+
+    public class CategoryScore
+    {
+        public string CategoryName { get; set; }
+        public int CategoryId { get; set; }
+        public string User { get; set; }
+        public long? MaxScore { get; set; }
     }
 }

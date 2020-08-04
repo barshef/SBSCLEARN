@@ -23,7 +23,8 @@ namespace SBSCLEARN.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ScoreDetail>().HasKey(o => new { o.CourseId, o.UserId });
+            modelBuilder.Entity<ScoreDetail>().HasKey(o => new { o.CourseId, o.UserId});
+            //modelBuilder.Entity<ScoreDetail>().Property(o=>o.Id).ValueGeneratedOnAdd();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

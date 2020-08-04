@@ -9,6 +9,14 @@
     <Compile Remove="Migrations\20200709110610_Inital-setup.Designer.cs" />
     <Compile Remove="Migrations\20200803213437_20200308_Inital-setup.cs" />
     <Compile Remove="Migrations\20200803213437_20200308_Inital-setup.Designer.cs" />
+    <Compile Remove="Migrations\20200804215055_Added ScoreDetails Object.cs" />
+    <Compile Remove="Migrations\20200804215055_Added ScoreDetails Object.Designer.cs" />
+    <Compile Remove="Migrations\20200804215323_Added ScoreDetails Object.cs" />
+    <Compile Remove="Migrations\20200804215323_Added ScoreDetails Object.Designer.cs" />
+    <Compile Remove="Migrations\20200804220253_Added ScoreDetails Object.cs" />
+    <Compile Remove="Migrations\20200804220253_Added ScoreDetails Object.Designer.cs" />
+    <Compile Remove="Migrations\20200804220809_Added ScoreDetails Object.cs" />
+    <Compile Remove="Migrations\20200804220809_Added ScoreDetails Object.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

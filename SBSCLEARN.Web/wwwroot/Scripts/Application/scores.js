@@ -145,16 +145,20 @@
                         }
                     },
                     {
-                        dataField: "courseName",
-                        caption: "Course Name",
+                        dataField: "categoryName",
+                        caption: "Category Name",
                         sortIndex: 0,
                         cssClass: 'font-bold',
                         sortOrder: 'asc'
                     },
                     {
-                        caption: "Score",
-                        dataField: "score"
+                        caption: "UserName",
+                        dataField: "user"
                     }, 
+                    {
+                        caption: "Score",
+                        dataField: "maxScore"
+                    }
                 ],
 
             };
